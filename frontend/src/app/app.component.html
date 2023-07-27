@@ -1,0 +1,113 @@
+<!--Style-->
+<style>
+ .content {
+    display: flex;
+    margin: 82px auto 32px;
+    margin-top: 10px;
+
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  } 
+
+  .background img {
+    height: 250px;
+  }
+
+  .container{
+    background-color: powderblue;
+  }
+</style>
+
+<!--Labels and Textboxes-->
+<div class="content" role="main">
+  <div class="container p-3 my-3 text-black border">
+
+  <h2>Passenger Information</h2>
+
+  <form class="row g-3">
+    <div class="form-group">
+      <label for="submitPassengerItemId" class="form-label">ID</label>
+      <input type="text" class="form-control" id="submitPassengerItemId" placeholder="Enter ID Number">
+    </div>
+
+    <div class="form-group">
+      <label for="submitPassengerItemLastName" class="form-label">Last Name</label>
+      <input type="text" class="form-control" id="submitPassengerItemLastName" placeholder="Enter Last Name">
+    </div>
+
+    <div class="form-group">
+      <label for="submitPassengerItemFirstName" class="form-label">First Name</label>
+      <input type="text" class="form-control" id="submitPassengerItemFirstName" placeholder="Enter First Name">
+    </div>
+
+    <div class="form-group">
+      <label for="submitPassengerItemNationality" class="form-label">Nationality</label>
+      <input type="text" class="form-control" id="submitPassengerItemNationality" placeholder="Enter Nationality">
+    </div>
+
+    <div class="col-auto">
+      <button type="button" class="btn btn-primary mb-3" (click)="submitData()">Submit</button>
+    </div>
+  </form>
+
+  <h2></h2>
+  <h2></h2>
+
+  <!--update-->
+  <h3>Update Information</h3>
+  <h6>Please enter ID of entry that needs updating along with updated information</h6>
+
+  <form class="row g-3">
+    <div class="form-group">
+      <label for="updatePassengerItemId" class="form-label">ID</label>
+      <input type="text" class="form-control" id="updatePassengerItemId" placeholder="Enter ID Number">
+    </div>
+
+    <div class="form-group">
+      <label for="updatePassengerItemLastName" class="form-label">Last Name</label>
+      <input type="text" class="form-control" id="updatePassengerItemLastName" placeholder="Enter Last Name">
+    </div>
+
+    <div class="form-group">
+      <label for="updatePassengerItemFirstName" class="form-label">First Name</label>
+      <input type="text" class="form-control" id="updatePassengerItemFirstName" placeholder="Enter First Name">
+    </div>
+
+    <div class="form-group">
+      <label for="updatePassengerItemNationality" class="form-label">Nationality</label>
+      <input type="text" class="form-control" id="updatePassengerItemNationality" placeholder="Enter Nationality">
+    </div>
+
+    <div class="col-auto">
+      <button (click)= updateData() type="button" class="btn btn-primary mb-3" >Update</button>
+    </div>
+  </form>
+
+  <h2></h2>
+  <h2></h2>
+
+  <!--delete-->
+  <h3>Delete Information</h3>
+  <h2></h2>
+
+  <form class="row g-3">
+    <div class="form-group">
+      <label for="deletePassengerItemId" class="form-label">Enter ID to delete entry</label>
+      <input type="text" class="form-control" id="deletePassengerItemId" placeholder="Enter ID Number">
+    </div>
+
+    <div class="form-group">
+      <button (click)="deleteData()" type="button" class="btn btn-primary mb-3" >Delete</button>
+    </div>
+  </form>
+
+ </div>
+  <h2>Passengers Boarding Flight</h2>
+  <div *ngFor="let item of data">
+
+    <p>{{item.id}}, {{item.lastName}}, {{item.firstName}}, {{item.nationality}}</p>
+    <p></p>
+  </div>
+</div> 

@@ -1,0 +1,34 @@
+﻿---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: passengerbackend
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: passengerbackend
+    spec:
+      containers:
+      - name: passengerbackend
+        image: sarahjessiman/passengerbackend:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: ASPNETCORE_URLS
+          value: http://*:80
+  selector:
+    matchLabels:
+      app: passengerbackend
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: passengerbackend
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+  selector:
+    app: passengerbackend
